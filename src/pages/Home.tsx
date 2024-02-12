@@ -1,13 +1,16 @@
-import { FaRegCalendarDays } from "react-icons/fa6";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const Home = () => {
   return (
     <div className="grid justify-center items-center">
-      <div className="flex font-bold gap-4 text-[2rem] mt-10 h-full w-full" >
-        <div className="flex">
+      <div className="flex  gap-4 mt-10 h-full w-full" >
+        <div className="flex text-[2rem] font-bold">
           Welcome to <p className="text-red-700 mx-1"> Capt’s Gym </p> ADMIN DASHBOARD
         </div>
-        <FaRegCalendarDays size={200} />
+        <div className='w-96 p-10'>
+          <Calendar />
+        </div>
       </div>
     </div>
 
