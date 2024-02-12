@@ -10,6 +10,10 @@ import { ReactNode, useEffect } from "react";
 import UsersList from "./pages/UsersList";
 import Statistics from "./pages/Statistics";
 import Layout from "./components/Layout";
+import EditMealPlan from "./pages/EditMealPlan";
+import EditInfo from "./pages/EditInfo";
+import Archive from "./pages/Archive";
+import FileMaintenance from "./pages/FileMaintenance";
 
 interface TimerProviderProps {
   children: ReactNode;
@@ -44,6 +48,10 @@ function App() {
           <Route path="/userList" element={<UsersList />} />
           <Route path="/user" element={<UserInfo />} />
           <Route path="/tableList" element={<TablePage />} />
+          <Route path="/editMealPlan" element={<EditMealPlan />} />
+          <Route path="/editInfo" element={<EditInfo />} />
+          <Route path="/archive" element={<Archive />} />
+          <Route path="/fileMaintenance" element={<FileMaintenance />} />
         </Routes>
       </Layout>}
       <Routes>

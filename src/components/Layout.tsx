@@ -46,6 +46,13 @@ const Layout: React.FC<AdminLayoutProps> = ({ children }) => {
                     <PiUsersThreeBold />
                     ACCOUNTS
                 </Link>
+                <Link
+                    to="/fileMaintenance"
+                    className="px-4 items-center active:bg-cyan-700 active:rounded-full hover:bg-cyan-700 hover:rounded-full h-max py-2 flex gap-4"
+                >
+                    <PiUsersThreeBold />
+                    Client Listing
+                </Link>
                 {user ? <button
                     className="px-4 items-center hover:bg-cyan-700 hover:rounded-full h-max py-2 flex gap-4"
                     onClick={clearUser}><RiLogoutBoxRLine /> Logout</button> :
