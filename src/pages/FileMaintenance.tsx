@@ -84,12 +84,6 @@ const FileMaintenance = () => {
                                 <TableCell align="center">{item.fullName}</TableCell>
                                 <TableCell
                                     align="center"
-                                    style={{
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        alignItems: "center",
-                                        gap: "10px",
-                                    }}
                                 >
                                     <Link to={`/editInfo?email=${item.email}`}>
                                         <button style={btn}>Edit Info</button>
@@ -97,12 +91,6 @@ const FileMaintenance = () => {
                                 </TableCell>
                                 <TableCell
                                     align="center"
-                                    style={{
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        alignItems: "center",
-                                        gap: "10px",
-                                    }}
                                 >
                                     <Link to={`/editMealPLan?email=${item.email}`}>
                                         <button style={btn}>Edit Meal Plan</button>
@@ -110,12 +98,6 @@ const FileMaintenance = () => {
                                 </TableCell>
                                 <TableCell
                                     align="center"
-                                    style={{
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        alignItems: "center",
-                                        gap: "10px",
-                                    }}
                                 >
                                     <Link to={`/archive?email=${item.email}`}>
                                         <button style={btn}>Archive</button>
