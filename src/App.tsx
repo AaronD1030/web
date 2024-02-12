@@ -1,12 +1,12 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from "./pages/login/Login";
 import UserInfo from "./pages/UserInfo";
 import useAuthStore from "./zustand/AuthStore";
 import Home from "./pages/Home";
 import TablePage from "./pages/TablePage";
 import useMembershipUpdate from "./UseMembershipUpdate";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import UsersList from "./pages/UsersList";
 import Statistics from "./pages/Statistics";
 import Layout from "./components/Layout";
@@ -26,6 +26,14 @@ function App() {
   const user = useAuthStore((state) => state.user);
 
   useMembershipUpdate();
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login")
+    }
+  }, [])
 
   return (
     <TimerProvider>
