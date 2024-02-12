@@ -5,9 +5,12 @@ import useAuthStore from "../../zustand/AuthStore";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../FirebaseConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const setUser = useAuthStore((state) => state.setUser);
+
+  const navigate = useNavigate();
 
   const [credentials, setCredentials] = useState<ILogin>({
     email: "",
@@ -36,16 +39,12 @@ const Login = () => {
         credentials.email,
         credentials.password
       );
-
       const user = userCredential.user;
-
       const q = query(
         collection(db, "users"),
         where("email", "==", user.email)
       );
-
       const querySnapshot = await getDocs(q);
-
       querySnapshot.forEach((doc) => {
         const userData = {
           dateOfBirth: doc.data().dateOfBirth,
@@ -53,9 +52,9 @@ const Login = () => {
           fullName: doc.data().fullName,
           role: doc.data().role,
         };
-
         if (userData.role === "admin") {
           setUser(credentials.email);
+          navigate("/");
         } else {
           setLoading(false);
           setErrors("You do not have permission to log in.");

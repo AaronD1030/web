@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
 
   const user = useAuthStore((state) => state.user);
-  const clearUser = useAuthStore((state) => state.clearUser);
+
 
   const toggleLoginModal = () => {
     setIsLoginOpen(!isLoginOpen);
@@ -21,7 +21,6 @@ const Navbar = () => {
           {user ? (
             <div className="navbar-user-logout-container">
               <span>{user}</span>
-              <button onClick={clearUser}>Logout</button>
             </div>
           ) : (
             <Link

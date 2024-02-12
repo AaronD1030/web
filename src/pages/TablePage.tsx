@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/navbar/Navbar";
 import {
   Button,
   Table,
@@ -9,7 +8,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useFirestoreCollection } from "../FireStoreCollection";
 
 const TablePage = () => {
@@ -27,13 +26,11 @@ const TablePage = () => {
     whatToFilter ? whatToFilter : ""
   );
 
+  const navigate = useNavigate();
+
   return (
-    <div style={home}>
-      <Navbar />
-      <div style={purpleContainer}>
-        <div style={boxContainer}></div>
-      </div>
-      <div style={container}>
+    <div className="w-full">
+      <div className="m-2">
         <TableContainer sx={tableContainer}>
           <Button
             sx={{
@@ -41,7 +38,7 @@ const TablePage = () => {
               border: "2px solid black",
               margin: "5px",
             }}
-            href="/"
+            onClick={() => navigate(-1)}
           >
             Back
           </Button>
@@ -85,43 +82,6 @@ const TablePage = () => {
 };
 
 export default TablePage;
-
-const home: React.CSSProperties = {
-  minHeight: "100vh",
-  height: "100%",
-  width: "100vw",
-  backgroundColor: "#ECECEC",
-  paddingBottom: "100px",
-};
-
-const purpleContainer: React.CSSProperties = {
-  backgroundColor: "#6249FD",
-  width: "100%",
-  height: "300px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-};
-
-const boxContainer: React.CSSProperties = {
-  maxWidth: "1100px",
-  width: "100%",
-  display: "grid",
-  gridTemplateColumns: "repeat(4, 1fr)",
-  alignContent: "center",
-  justifyContent: "center",
-  gap: "10px",
-  marginTop: "250px",
-};
-
-const container: React.CSSProperties = {
-  width: "100%",
-  position: "absolute",
-  top: "200px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-};
 
 const tableContainer: React.CSSProperties = {
   maxWidth: "1100px",

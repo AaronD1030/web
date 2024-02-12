@@ -5,7 +5,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../FirebaseConfig";
 import { IBMIData, IUserData } from "../types/Types";
 import moment from "moment";
-import Navbar from "../components/navbar/Navbar";
+import { useNavigate } from 'react-router-dom';
 import MealPlanner from "./MealPlanner";
 import WorkProgress from "./WorkProgress";
 import MonthlyMembership from "./MonthlyMembership";
@@ -19,6 +19,8 @@ const UserInfo = () => {
   const [userData, setUserData] = useState<IUserData | undefined>();
 
   const userCollectionList = collection(db, "users");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,7 +68,7 @@ const UserInfo = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div
         style={{
           width: "100%",
@@ -84,7 +86,7 @@ const UserInfo = () => {
               border: "2px solid black",
               margin: "5px",
             }}
-            href="/"
+            onClick={() => navigate(-1)}
           >
             Back
           </Button>

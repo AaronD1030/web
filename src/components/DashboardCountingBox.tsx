@@ -30,7 +30,7 @@ const DashboardCountingBox = ({
   };
 
   return (
-    <div style={dashboardCountingBox}>
+    <div className="border border-gray-500" style={dashboardCountingBox}>
       <div style={dashboardCountingBoxCountainer}>
         <section style={dashboardInfoFirstSection}>
           <span style={titleFont}>{title}</span>
@@ -51,7 +51,7 @@ export default DashboardCountingBox;
 
 const dashboardCountingBox: React.CSSProperties = {
   width: "230px",
-  height: "120px",
+  height: "140px",
   backgroundColor: "#ffffff",
   borderRadius: "10px",
   padding: "20px",

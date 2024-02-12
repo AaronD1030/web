@@ -44,10 +44,10 @@ const UsersList = () => {
 
       const data = querySnapshot.docs.map(
         (doc) =>
-          ({
-            id: doc.id,
-            ...doc.data(),
-          } as IUserData)
+        ({
+          id: doc.id,
+          ...doc.data(),
+        } as IUserData)
       );
 
       setUsersData(data as IUserData[]);
@@ -81,9 +81,9 @@ const UsersList = () => {
   );
 
   return (
-    <div style={container}>
+    <div className="flex flex-wrap overflow-y-scroll gap-4">
       <TableContainer sx={tableContainer}>
-        <div style={tableTopHeader}>
+        <div className="fixed bg-gray-200 w-full top-0 py-4">
           <span style={tableTitle}>Users</span>
           <TextField
             id="outlined-search"
@@ -92,7 +92,7 @@ const UsersList = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <Table>
+        <Table className="mt-24">
           <TableHead sx={tableHeader}>
             <TableRow>
               <TableCell sx={{ fontWeight: "bold" }} align="center">
@@ -183,30 +183,13 @@ const UsersList = () => {
 
 export default UsersList;
 
-const container: React.CSSProperties = {
-  width: "100%",
-  marginTop: "180px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-};
-
 const tableContainer: React.CSSProperties = {
-  maxWidth: "1100px",
   width: "100%",
   backgroundColor: "#ffffff",
 };
 
 const tableHeader: React.CSSProperties = {
   backgroundColor: "#F7F7F7",
-};
-
-const tableTopHeader: React.CSSProperties = {
-  width: "100%",
-  backgroundColor: "#ffffff",
-  display: "flex",
-  alignItems: "flex-start",
-  padding: "20px 0",
 };
 
 const tableTitle: React.CSSProperties = {
