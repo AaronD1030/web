@@ -1,8 +1,10 @@
 import React, { ReactNode } from "react";
 import useAuthStore from "../zustand/AuthStore";
 import { IoStatsChartOutline } from "react-icons/io5";
-import { PiUsersThreeBold } from "react-icons/pi";
+import { PiUsersThreeBold, PiBarbellBold} from "react-icons/pi";
 import { RiLogoutBoxRLine } from "react-icons/ri";
+import { GiMeal } from "react-icons/gi";
+import { CiBoxList } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
 interface AdminLayoutProps {
@@ -29,14 +31,14 @@ const Layout: React.FC<AdminLayoutProps> = ({ children }) => {
                     to="/mealPlan"
                     className="px-4 items-center active:bg-cyan-700 active:rounded-full hover:bg-cyan-700 hover:rounded-full h-max py-2 flex gap-4"
                 >
-                    <IoStatsChartOutline />
+                    <GiMeal />
                     MEAL PLAN
                 </Link>
                 <Link
-                    to="/wotkOut"
+                    to="/workOut"
                     className="px-4 items-center active:bg-cyan-700 active:rounded-full hover:bg-cyan-700 hover:rounded-full h-max py-2 flex gap-4"
                 >
-                    <IoStatsChartOutline />
+                    <PiBarbellBold />
                     WORK OUT
                 </Link>
                 <Link
@@ -50,7 +52,7 @@ const Layout: React.FC<AdminLayoutProps> = ({ children }) => {
                     to="/fileMaintenance"
                     className="px-4 items-center active:bg-cyan-700 active:rounded-full hover:bg-cyan-700 hover:rounded-full h-max py-2 flex gap-4"
                 >
-                    <PiUsersThreeBold />
+                    <CiBoxList />
                     Client Listing
                 </Link>
                 {user ? <button
